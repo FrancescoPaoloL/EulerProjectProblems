@@ -15,6 +15,9 @@ evenly divisible by all of the numbers from
 ...
 2520 / 10 = 252
 
+see:
+    https://www.quora.com/What-is-the-least-number-divisible-by-all-numbers-between-1-and-11-inclusive-of-1-and11?share=1
+
 '''
 import time
 
