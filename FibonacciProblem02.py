@@ -20,29 +20,28 @@ ex
 
 import time
 
-print('Start!')
-start_time = time.time()
-limit = 4000000
-seq = [0, 1]
-tmpList = []
-mysum = 0
+def sum_of_even_fibonacci_numbers(limit):
+    seq = [0, 1]
+    mysum = 0
 
-while True:
-    tmpList.clear()
-    lng = len(seq)
+    while True:
+        lng = len(seq)
 
-    tmp = seq[lng - 1] + seq[lng - 2]
-    if tmp > limit:
-        break
+        tmp = seq[lng - 1] + seq[lng - 2]
+        if tmp > limit:
+            break
 
-    if (tmp % 2) == 0:
-        mysum += tmp
-    seq.append(tmp)
+        if (tmp % 2) == 0:
+            mysum += tmp
+        seq.append(tmp)
 
-    tmpList = list(seq)
-    seq.clear()
+    return mysum
 
-    seq = list(tmpList[-3:])
 
-print(f'The sum is {mysum}')
-print("--- %s seconds ---" % (time.time() - start_time))
+if __name__ == '__main__':
+    start_time = time.time()
+    print('Start!')
+    limit = 4000000
+    mysum = sum_of_even_fibonacci_numbers(limit)
+    print(f'The sum is {mysum}')
+    print("--- %s seconds ---" % (time.time() - start_time))
