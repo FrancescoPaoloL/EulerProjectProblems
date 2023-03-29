@@ -16,18 +16,22 @@ To verify:
 
 import time
 
+def largest_prime_factor(n):
+    nrStart = n
+    pf = 2
+    
+    # pf < sqrt(n) --> pf^2 < n --> pf * pf  < n
+    while pf * pf < n:
+        while n % pf == 0:
+            n = n / pf
+        pf = pf + 1
+    
+    # the remaining factor is the largest prime factor
+    return int(n) if n > 1 else int(nrStart)
+
+
 print('Start!')
 start_time = time.time()
-
-nrStart = n = 600851475143
-pf = 2
-
-
-# pf < sqrt(n) --> pf^2 < n --> pf * pf  < n
-while pf * pf < n:
-    while n % pf == 0:
-        n = n / pf
-    pf = pf + 1
-
-print(f'The largest prime factor of {nrStart} is {n}')
+nrStart = 600851475143
+print(f'The largest prime factor of {nrStart} is {largest_prime_factor(nrStart)}')
 print("--- %s seconds ---" % (time.time() - start_time))
