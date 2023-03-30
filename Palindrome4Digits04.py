@@ -27,7 +27,6 @@ Find 3 digits:
 '''
 import time
 
-
 class Max:
     i = 0
 
@@ -35,18 +34,18 @@ class Max:
         if nr > Max.i:
             Max.i = nr
 
+def find_largest_palindrome():
+    tmp = 0
+    m = Max()
+
+    for f1 in range(100, 1000):
+        for f2 in range(100, 1000):
+            tmp = f1 * f2
+            if str(tmp) == str(tmp)[::-1]:
+                m.chkMax(tmp)
+    return Max.i
 
 print('Start!')
 start_time = time.time()
-
-tmp = 0
-m = Max()
-
-for f1 in range(100, 1000):
-    for f2 in range(100, 1000):
-        tmp = f1 * f2
-        if str(tmp) == str(tmp)[::-1]:
-            m.chkMax(tmp)
-
-print(f'The largest palindrome number is {Max.i}')
+print(f'The largest palindrome number is {find_largest_palindrome()}')
 print("--- %s seconds ---" % (time.time() - start_time))
