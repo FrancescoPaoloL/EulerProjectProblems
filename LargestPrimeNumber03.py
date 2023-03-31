@@ -29,9 +29,9 @@ def largest_prime_factor(n):
     # the remaining factor is the largest prime factor
     return int(n) if n > 1 else int(nrStart)
 
-
-print('Start!')
-start_time = time.time()
-nrStart = 600851475143
-print(f'The largest prime factor of {nrStart} is {largest_prime_factor(nrStart)}')
-print("--- %s seconds ---" % (time.time() - start_time))
+if __name__ == '__main__':
+    print('Start!')
+    start_time = time.time()
+    nrStart = 600851475143
+    print(f'The largest prime factor of {nrStart} is {largest_prime_factor(nrStart)}')
+    print("--- %s seconds ---" % (time.time() - start_time))

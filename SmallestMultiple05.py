@@ -38,7 +38,8 @@ def smallestNr():
     return x
 
 
-start_time = time.time()
-print('Start!')
-print(f'The smallest positive number is {smallestNr()}')
-print("--- %s seconds ---" % (time.time() - start_time))
+if __name__ == '__main__':
+    start_time = time.time()
+    print('Start!')
+    print(f'The smallest positive number is {smallestNr()}')
+    print("--- %s seconds ---" % (time.time() - start_time))

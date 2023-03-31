@@ -45,7 +45,8 @@ def find_largest_palindrome():
                 m.chkMax(tmp)
     return Max.i
 
-print('Start!')
-start_time = time.time()
-print(f'The largest palindrome number is {find_largest_palindrome()}')
-print("--- %s seconds ---" % (time.time() - start_time))
+if __name__ == '__main__':
+    print('Start!')
+    start_time = time.time()
+    print(f'The largest palindrome number is {find_largest_palindrome()}')
+    print("--- %s seconds ---" % (time.time() - start_time))
