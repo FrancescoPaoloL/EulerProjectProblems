@@ -24,20 +24,21 @@ import time
 
 def chkMod(nummber):
     for item in range(1, 21):
-        if (x % item) != 0:
+        if (nummber % item) != 0:
             return False
     return True
 
+def smallestNr():
+    x = 0
 
-print('Start!')
+    while True:
+        x += 20
+        if chkMod(x):
+            break
+    return x
+
+
 start_time = time.time()
-
-x = 0
-
-while True:
-    x += 20
-    if chkMod(x):
-        break
-
-print(f'The smallest positive number is {x}')
+print('Start!')
+print(f'The smallest positive number is {smallestNr()}')
 print("--- %s seconds ---" % (time.time() - start_time))
