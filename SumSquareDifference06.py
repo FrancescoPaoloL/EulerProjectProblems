@@ -16,16 +16,18 @@ Find the difference between the sum of the squares of the first one hundred natu
 '''
 import time
 
-print('Start!')
-start_time = time.time()
-tmp = 0
-sm = 0
+def findDiff():
+    tmp = 0
+    sm = 0
 
-for i in range(1, 101):
-    tmp += i**2
-    sm += i
+    for i in range(1, 101):
+        tmp += i**2
+        sm += i
 
-result = (sm**2) - tmp
+    return (sm**2) - tmp
 
-print(f'The result is {result}')
-print("--- %s seconds ---" % (time.time() - start_time))
+if __name__ == '__main__':
+    print('Start!')
+    start_time = time.time()
+    print(f'The result is {findDiff()}')
+    print("--- %s seconds ---" % (time.time() - start_time))
