@@ -52,6 +52,8 @@ def PythagoreanTriplets():
         m += 1
 
 
-a, b, c = PythagoreanTriplets()
-print(f'The product is {a*b*c}')
-print("--- %s seconds ---" % (time.time() - start_time))
+
+if __name__ == '__main__':
+    a, b, c = PythagoreanTriplets()
+    print(f'The product is {a*b*c}')
+    print("--- %s seconds ---" % (time.time() - start_time))
