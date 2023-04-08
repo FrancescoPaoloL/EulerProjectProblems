@@ -10,10 +10,7 @@ import time
 print('Start!')
 start_time = time.time()
 
-def primes(n):
-    # Returns  a list of primes < n
-    # see: https://stackoverflow.com/questions/2068372/fastest-way-to-list-all-primes-below-n-in-python/3035188#3035188
-   
+def primes(n):  
     sieve = [True] * n
     for i in range(3, int(n**0.5) + 1, 2):
         if sieve[i]:
@@ -21,8 +18,9 @@ def primes(n):
     return [2] + [i for i in range(3, n, 2) if sieve[i]]
 
 
-kLimit = 2000000
-listPN = primes(kLimit)
+if __name__ == '__main__':
+    kLimit = 2000000
+    listPN = primes(kLimit)
 
-print(f'The sum of first {kLimit} prime number is {sum(listPN)}')
-print("--- %s seconds ---" % (time.time() - start_time))
+    print(f'The sum of first {kLimit} prime number is {sum(listPN)}')
+    print("--- %s seconds ---" % (time.time() - start_time))
