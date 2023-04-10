@@ -105,9 +105,9 @@ def calcMatrixProd(matrix, row, col, direction):
             offsetRow = row - idx
             offsetCol = col - idx
 
-        if offsetRow > kLimit or offsetRow < 0:
+        if offsetRow < 0 or offsetRow >= len(matrix):
             break
-        if offsetCol > kLimit or offsetCol < 0:
+        if offsetCol < 0 or offsetCol >= len(matrix[0]):
             break
 
         tmp *= int(matrix[offsetRow][offsetCol])
@@ -156,23 +156,17 @@ matrix = [
 # t = calcMatrixProd(matrix, 0, 0, Direction.diagonalDownDx) # -> 279496
 # t = calcMatrixProd(matrix, 0, 0, Direction.diagonalUpSx) # -> 8
 
+if __name__ == '__main__':
+    for row in range(kLimit):
+        for col in range(kLimit) :
+            calcMatrixProd(matrix, row, col, Direction.down)
+            calcMatrixProd(matrix, row, col, Direction.up)
+            calcMatrixProd(matrix, row, col, Direction.left)
+            calcMatrixProd(matrix, row, col, Direction.right)
+            calcMatrixProd(matrix, row, col, Direction.diagonalDownSx)
+            calcMatrixProd(matrix, row, col, Direction.diagonalUpDx)
+            calcMatrixProd(matrix, row, col, Direction.diagonalDownDx)
+            calcMatrixProd(matrix, row, col, Direction.diagonalUpSx)
 
-for row in range(kLimit):
-    for col in range(kLimit):
-        calcMatrixProd(matrix, row, col, Direction.down)
-        calcMatrixProd(matrix, row, col, Direction.up)
-        calcMatrixProd(matrix, row, col, Direction.left)
-        calcMatrixProd(matrix, row, col, Direction.right)
-        calcMatrixProd(matrix, row, col, Direction.diagonalDownSx)
-        calcMatrixProd(matrix, row, col, Direction.diagonalUpDx)
-        calcMatrixProd(matrix, row, col, Direction.diagonalDownDx)
-        calcMatrixProd(matrix, row, col, Direction.diagonalUpSx)
-
-print(f'The greatest product of {kOffset} adjacent numbers is {MaxNr.value}')
-print("--- %s seconds ---" % (time.time() - start_time))
-
-
-''''''''''''
-
-# rows, cols = 20, 20
-# matrix = [([0]*cols) for i in range(rows)]
+    print(f'The greatest product of {kOffset} adjacent numbers is {MaxNr.value}')
+    print("--- %s seconds ---" % (time.time() - start_time))
