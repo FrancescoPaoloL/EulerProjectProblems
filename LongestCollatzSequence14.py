@@ -36,30 +36,31 @@ note: Once the chain starts the terms are allowed to go above one million.
 
 import time
 
-print('Start!')
-start_time = time.time()
+def doCollatz(nrSeq):
+    maxItems = 0
+    lst = []
+    mynumber = 0
 
-nrSeq = 999999
-maxItems = 0
-lst = []
-mynumber = 0
+    for n in range(nrSeq, 1, -1):
+        tmp = n
+        # print(n)
+        lst.clear()
+        lst.append(n)
+        while (n > 1):
+            if (n % 2 > 0):
+                n = 3*n + 1
+            else:
+                n = n / 2
+            lst.append(int(n))
+        lng = len(lst)
+        if maxItems < lng:
+            maxItems = lng
+            mynumber = tmp
+        # print(maxItems)
+    return mynumber
 
-for n in range(nrSeq, 1, -1):
-    tmp = n
-    # print(n)
-    lst.clear()
-    lst.append(n)
-    while (n > 1):
-        if (n % 2 > 0):
-            n = 3*n + 1
-        else:
-            n = n / 2
-        lst.append(int(n))
-    lng = len(lst)
-    if maxItems < lng:
-        maxItems = lng
-        mynumber = tmp
-    # print(maxItems)
-
-print(f'The starting number which produces the longest chain is {mynumber}')
-print("--- %s seconds ---" % (time.time() - start_time))
+if __name__ == '__main__':
+    print('Start!')
+    start_time = time.time()
+    print(f'The starting number which produces the longest chain is {doCollatz(999999)}')
+    print("--- %s seconds ---" % (time.time() - start_time))
