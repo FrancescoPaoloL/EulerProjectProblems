@@ -30,12 +30,14 @@ Summing it all up, the closed form answer to that problem is:
 import time
 import math
 
-print('Start!')
-start_time = time.time()
+def calcMoves(n):
+    return int(math.factorial(2*n) / math.factorial(n) ** 2)
 
-n = 20
 
-routes = int(math.factorial(2*n) / math.factorial(n) ** 2)
-
-print(f'There are { routes} through a {n}x{n} grid')
-print("--- %s seconds ---" % (time.time() - start_time))
+if __name__ == '__main__':
+    print('Start!')
+    start_time = time.time()
+    n = 20
+    routes = calcMoves(n)
+    print(f'There are { routes} through a {n}x{n} grid')
+    print("--- %s seconds ---" % (time.time() - start_time))
