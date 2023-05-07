@@ -135,18 +135,19 @@ def translate(number):
     else:
         ret += dctNumbers.get(number)
 
-    return ret
+    return ret.strip()
 
 
-print('Start!')
-start_time = time.time()
+if __name__ == '__main__':
+    print('Start!')
+    start_time = time.time()
 
-sum = 0
-for i in range(1, 1001):
-    s = translate(i)
-    print(s)
-    sum += len(s) - s.count(' ') - s.count('-')
+    sum = 0
+    for i in range(1, 1001):
+        s = translate(i)
+        print(s)
+        sum += len(s) - s.count(' ') - s.count('-')
 
-print(f'For all the numbers from 1 to 1000 inclusive, \
+    print(f'For all the numbers from 1 to 1000 inclusive, \
 we have used {sum} letters (no spaces / no hypen)')
-print("--- %s seconds ---" % (time.time() - start_time))
+    print("--- %s seconds ---" % (time.time() - start_time))
